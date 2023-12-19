@@ -1,8 +1,9 @@
 # FORUM
+## Image upload
 
 - [Audit instructions](https://01.kood.tech/git/adubtsov/forum#audit-instructions)
-- [Task description](https://github.com/01-edu/public/blob/master/subjects/forum/README.md)
-- [Audit on 01-edu](https://github.com/01-edu/public/blob/master/subjects/forum/audit/README.md)
+- [Task description](https://github.com/01-edu/public/blob/master/subjects/forum/image-upload/README.md)
+- [Audit on 01-edu](https://github.com/01-edu/public/blob/master/subjects/forum/image-upload/audit/README.md)
 
 ### Collaborators
 
@@ -11,6 +12,16 @@
 - [Kaarup Vares](https://01.kood.tech/git/kvares)
 - [Tanel Soidla](https://01.kood.tech/git/TanelS)
 
+### Task explanation:
+
+The Forum project consists in creating a web forum that allows :
+- communication between users.
+- associating categories to posts.
+- liking and disliking posts and comments.
+- filtering posts.
+
+Forum <b>image-upload</b> in addition should give the possibility to create a post containing an image as well as text.
+
 ## Audit instructions:
 
 ### Alternative 1:
@@ -18,13 +29,13 @@
 1. Open terminal. Clone this repo using following command:
 
 ```console
-git clone https://01.kood.tech/git/adubtsov/forum
+git clone https://01.kood.tech/git/adubtsov/forum-image-upload
 ```
 
 2. Change current folder to folder with the project:
 
 ```console
-cd ./forum/
+cd ./forum-image-upload/
 ```
 
 3. Run the server with command:
@@ -41,7 +52,11 @@ http://localhost:8080/home
 
 5. Check our project using audit questions:
 
-- [Link](https://github.com/01-edu/public/blob/master/subjects/forum/audit/README.md)
+- [Link](https://github.com/01-edu/public/blob/master/subjects/forum/image-upload/audit/README.md)
+
+```console
+https://github.com/01-edu/public/blob/master/subjects/forum/image-upload/audit/README.md
+```
 
 ### Alternative 2:
 
@@ -76,13 +91,13 @@ Instructions how to do that:
 1. Open terminal, clone this repo using command
 
 ```console
-git clone https://01.kood.tech/git/adubtsov/forum
+git clone https://01.kood.tech/git/adubtsov/forum-image-upload
 ```
 
 2. Change current folder to folder with the project:
 
 ```console
-cd ./forum/
+cd ./forum-image-upload/
 ```
 
 3. Build Docker Image:
@@ -110,10 +125,10 @@ After running this command, you should be able to access the web application by 
 
 6. Check our project using audit questions:
 
-- [Link](https://github.com/01-edu/public/blob/master/subjects/forum/audit/README.md)
+- [Link](https://github.com/01-edu/public/blob/master/subjects/forum/image-upload/audit/README.md)
 
 ```console
-https://github.com/01-edu/public/blob/master/subjects/forum/audit/README.md
+https://github.com/01-edu/public/blob/master/subjects/forum/image-upload/audit/README.md
 ```
 
 7. List all running containers:
