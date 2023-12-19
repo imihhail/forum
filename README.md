@@ -1,7 +1,7 @@
 # FORUM
 ## Image upload
 
-- [Audit instructions](https://01.kood.tech/git/adubtsov/forum#audit-instructions)
+- [Audit instructions](https://01.kood.tech/git/adubtsov/forum-image-upload#audit-instructions)
 - [Task description](https://github.com/01-edu/public/blob/master/subjects/forum/image-upload/README.md)
 - [Audit on 01-edu](https://github.com/01-edu/public/blob/master/subjects/forum/image-upload/audit/README.md)
 
@@ -14,13 +14,13 @@
 
 ### Task explanation:
 
-The Forum project consists in creating a web forum that allows :
+The Forum project is creating a web forum that allows :
 - communication between users.
 - associating categories to posts.
 - liking and disliking posts and comments.
 - filtering posts.
 
-Forum <b>image-upload</b> in addition should give the possibility to create a post containing an image as well as text.
+<b>Image-upload</b> in addition should give the possibility to create a post containing an image as well as text.
 
 ## Audit instructions:
 
