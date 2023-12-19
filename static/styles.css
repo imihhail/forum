@@ -1,0 +1,110 @@
+.like {
+    width: 25px;
+    transition: 0.2s;
+}
+
+.likebutton {
+    width: 35px;
+    border: none;
+    background-color: white;
+    padding-left: 0px;
+    margin-right: -5px;
+}
+
+.commentsButton {
+    border: none;
+    height: 27px;
+    margin-top: 10px;
+    background-color: white;
+    padding-left: 0px;   
+}
+
+.like:hover {
+    z-index: 1;
+    transform: scale(1.2);
+}
+
+.buttonText:hover {
+    text-decoration: underline;
+    transition: 0.2s;
+}
+
+.buttonText {
+    transition: 0.2s;
+}
+
+
+
+.postPicture {
+    max-height : 186px; 
+    width: max-content;
+    border-radius: 10px;
+    border: 2px solid black;
+    margin-bottom: 20px;
+}
+
+header {
+    background-color: black;
+    color: white;
+    height: 100px;
+    margin: 0px;
+}
+
+.postCreator {
+    font-size: 20px;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7em;
+}
+
+label.label input[type="file"] {
+    position: absolute;
+    top: -1000px;
+}
+
+.label, .commentButton {
+    cursor: pointer;
+    border: 1px solid #cccccc;
+    border-radius: 7px;
+    padding: 6px 12px;
+    background: #212529;
+    display: inline-block;
+    color: white;
+    height: 40px;
+    transition: 0.1s;
+    margin-bottom: 10px;
+  }
+
+.label:hover, .commentButton:hover {
+    opacity: 0.8;
+}
+
+.user_comment {
+    margin-bottom: 500px;
+}
+
+
+.fullContent {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%); 
+}
+
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    transition: 0.2s;
+}
+
+input[type="checkbox"]:checked {
+    transform: rotate(45deg);
+}
+
+.chk {
+    display: inline-block;
+    font-size: 22px;
+    margin-right: 10px;
+    
+}
+  

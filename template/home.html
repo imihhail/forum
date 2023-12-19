@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+    <link href="/static/styles.css" rel="stylesheet">
+    <title>Home</title>
+
+</head>
+<style>
+    /* General Styles */
+    body {
+        margin: 0;
+        background-color: #f1faee;
+        font-family: 'Poppins', sans-serif;
+        padding: 0;
+    }
+
+    /* Navbar Styles */
+    .navbar-custom .navbar-nav a {
+        font-weight: normal;
+        text-decoration: none;
+    }
+
+    .navbar-custom {
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    /* Typography Styles */
+    p {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.1em;
+        font-weight: 300;
+        line-height: 1.7em;
+        color: #999;
+    }
+
+    /* Card Styles */
+    .card {
+        height: 400px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .like:hover,
+    .dislike:hover {
+        transform: scale(1.1);
+    }
+
+    /* Card Body Styles */
+    .card-body {
+        height: 100%;
+        overflow: auto;
+    }
+
+    /* Link Styles */
+    a,
+    a:hover,
+    a:focus {
+        color: inherit;
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+
+    /* Separator Line Styles */
+    .line {
+        width: 100%;
+        height: 1px;
+        border-bottom: 1px dashed #ddd;
+        margin: 40px 0;
+    }
+
+    /* Wrapper Styles */
+    .wrapper {
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+    }
+
+    /* Sidebar Styles */
+    #sidebar {
+        min-width: 250px;
+        max-width: 250px;
+        background: #7386D5;
+        color: #fff;
+        transition: all 0.3s;
+    }
+
+    #sidebar .sidebar-header {
+        padding: 20px;
+        background: #6d7fcc;
+    }
+
+    #sidebar ul.components {
+        padding: 20px 0;
+        border-bottom: 1px solid #47748b;
+    }
+
+    #sidebar ul p {
+        color: #fff;
+        padding: 10px;
+    }
+
+    #sidebar ul li a {
+        padding: 10px;
+        font-size: 1.1em;
+        display: block;
+    }
+
+    #sidebar ul li a:hover {
+        color: #7386D5;
+        background: #fff;
+    }
+
+    /* Nested List Styles */
+    ul ul a {
+        font-size: 0.9em !important;
+        padding-left: 30px !important;
+        background: #6d7fcc;
+    }
+
+    /* Content Styles */
+    #content {
+        width: 100%;
+        padding: 20px;
+        min-height: 100vh;
+        transition: all 0.3s;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        #sidebar {
+            margin-left: -250px;
+        }
+
+        #sidebar.active {
+            margin-left: 0;
+        }
+
+        #sidebarCollapse span {
+            display: none;
+        }
+    }
+
+</style>
+<body>
+<nav class="navbar navbar-custom navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/home">Kood/Forum</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                {{if not .UserStatus.Logedin}}
+                <a class="nav-link" href="/register">Register</a>
+                {{end}}
+                {{if not .UserStatus.Logedin}}
+                <a class="nav-link" href="/login">Login</a>
+                {{end}}
+                {{if .UserStatus.Logedin}}
+                <a class="nav-link" href="/logout">Logout</a>
+                <a class="nav-link active" aria-current="page">Logged in as: <b>{{.UserStatus.UserName}}</b></a>
+                {{end}}
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="wrapper">
+
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Categories</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li class="active">
+                <a href="/home?FilterDropdown=AllCat">All categories</a>
+                <ul class="list-unstyled">
+                </ul>
+            </li>
+            {{if .UserStatus.Logedin}}
+            <li>
+                <a href="/home?FilterDropdown=MyPost">My posts</a>
+            </li>
+            <li>
+                <a href="/home?FilterDropdown=myLikes">My likes</a>
+                <ul class="list-unstyled">
+                </ul>
+            </li>
+            {{end}}
+            <li>
+                <a href="/home?FilterDropdown=Categorie1">Pictures</a>
+            </li>
+            <li>
+                <a href="/home?FilterDropdown=Categorie2">Memes</a>
+            </li>
+            <li>
+                <a href="/home?FilterDropdown=Categorie3">Code</a>
+            </li>
+            <li>
+                <a href="/home?FilterDropdown=Categorie4">Misc</a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <div id="content">
+        {{if .UserStatus.Logedin}}
+        <div class="text-center"><h2>Choose a category and write a post</h2></div>
+        <div class="line"></div>
+        <form method="POST" action="/home" enctype="multipart/form-data" class="form">
+            <div class="form-group pb-3">
+                <input type="checkbox" id="Categorie1" name="Categorie1" value="Categorie1">
+                <label class="chk" for="Categorie1">Pictures</label>
+                <input type="checkbox" id="Categorie2" name="Categorie2" value="Categorie2">
+                <label class="chk" for="Categorie2">Memes</label>
+                <input type="checkbox" id="Categorie3" name="Categorie3" value="Categorie3">
+                <label class="chk" for="Categorie3">Code</label>
+                <input type="checkbox" id="Categorie4" name="Categorie4" value="Categorie4">
+                <label class="chk" for="Categorie4">Misc</label>
+            </div>
+            <div class="form-group pb-3">
+                <textarea id="text-input" name="post" rows="5" class="form-control" placeholder="Type something..." required></textarea>
+            </div>
+
+            <label class="label">
+            <input type="file" name="picture"/>
+            <span><b>Upload image</b></span>
+            </label>
+
+          
+             <button type="submit" class="btn btn-dark"><b>Submit</b></button>
+        </form>
+        <p>{{.UserStatus.Errosmsg}}</p>
+
+        <div class="line"></div>
+        {{end}}
+
+        <div class="row">
+            {{range .AllUserPosts}}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body d-flex flex-column">
+                        <p class="postCreator"><b>{{.Creator}}:</b></p>
+                        <p class="card-text"><i>{{.UserPost}}</i></p>
+
+                        {{if .Picture}}
+                        <img class="postPicture" src=".{{.Picture}}">
+                        {{end}}
+
+                        <form method="post" action="/home" class="mt-auto"> 
+                            <div>
+                                <button class= "likebutton" name="like" value="{{.Id}}">
+                                    <img class="like" src="../static/like.png">
+                                </button>
+                                {{.PostLikes}}
+                                <button class= "likebutton" name="dislike" value="{{.Id}}">
+                                    <img class="like" src="../static/dislike.png">
+                                </button>
+                                {{.PostDislikes}}
+                            </div>
+                        </form>
+
+                        <form method="post" action="/comment"> 
+                            <button class="commentsButton" value="{{.Id}}" name="PostID"> 
+                            <p class="buttonText">Comments ({{.CommentCount}})</p>
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            {{end}}
+        </div>
+    </div>
+</div>
+</body>
+</html>
