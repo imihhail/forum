@@ -163,5 +163,20 @@ Be careful!
 sudo docker system prune -a
 ```
 
+### Useful links:
+
+You can upload images up to 20 MB. Here are links to pictures with size of 37 and 19 MB:
+
+- [15,650 × 5,191 pixels, file size: 36.87 MB, MIME type: image/jpeg](https://upload.wikimedia.org/wikipedia/commons/b/b1/%22Council_of_the_Gods%22_in_Galleria_Borghese_%28Rome%29_ceiling.jpg)
+
+```console
+https://upload.wikimedia.org/wikipedia/commons/b/b1/%22Council_of_the_Gods%22_in_Galleria_Borghese_%28Rome%29_ceiling.jpg
+```
+- [12,848 × 6,300 pixels, file size: 18.97 MB, MIME type: image/jpeg](https://upload.wikimedia.org/wikipedia/commons/7/71/%22East_front_of_Court_House_and_Planter%27s_House.%22.jpg)
+
+```console
+https://upload.wikimedia.org/wikipedia/commons/7/71/%22East_front_of_Court_House_and_Planter%27s_House.%22.jpg
+```
+
 #### Gratitude
 Thank you!
